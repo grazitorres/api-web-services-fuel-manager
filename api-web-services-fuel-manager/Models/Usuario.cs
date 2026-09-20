@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace api_web_services_fuel_manager.Models
 {
@@ -11,13 +12,14 @@ namespace api_web_services_fuel_manager.Models
         [Required]
         public string Nome { get; set; }
         [Required]
+        [JsonIgnore]
         public string Password { get; set; }
         [Required]
         public Perfil Perfil  { get; set; }
 
         public ICollection<VeiculoUsuarios> Veiculos { get; set; }
   
-         
+         //JsonIgnore para não retornar a senha
     }
 
     public enum Perfil
